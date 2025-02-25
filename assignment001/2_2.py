@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 ages = [13,15,16,16,19,20,20,21,22,22,25,25,25,25,30,33,33,33,35,35,35,35,36,40,45,46,52,70]
 
 if __name__ == '__main__':
+    print("EXERCISE 2.2\n")
+
     # Calculate the mean and get the median
     mean = np.mean(ages)
     median = np.median(ages)
@@ -60,10 +62,12 @@ if __name__ == '__main__':
     plt.boxplot(ages, vert=False)
     plt.title('Box plot')
     plt.xlabel('Age')
+    plt.grid(True)
 
     plt.subplot(1, 3, 2)
     stats.probplot(ages, dist="norm", plot=plt)
     plt.title("Normal Q-Q plot")
+    plt.grid(True)
 
     sorted_data = np.sort(ages)
     quantiles = np.linspace(0, 1, len(sorted_data))
@@ -72,6 +76,7 @@ if __name__ == '__main__':
     plt.title("Quantile Plot")
     plt.xlabel("Quantiles")
     plt.ylabel("Ordered Values")
+    plt.grid(True)
 
     plt.tight_layout()
     plt.show()

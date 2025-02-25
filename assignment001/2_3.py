@@ -9,6 +9,8 @@ intervals = [
 ]
 
 if __name__ == '__main__':
+    print("\nEXERCISE 2.3\n")
+
     # Calculate an approximate median
     total_frequency = 0
     for interval in intervals:

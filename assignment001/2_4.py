@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy import stats
 
 # Initial data (age, %fat)
 hospital_result = [
@@ -24,6 +25,8 @@ hospital_result = [
 ]
 
 if __name__ == '__main__':
+    print("\nEXERCISE 2.4\n")
+
     # Calculate the mean, median, and standard deviation
     ages = [result[0] for result in hospital_result]
     fats = [result[1] for result in hospital_result]
@@ -43,17 +46,33 @@ if __name__ == '__main__':
     print("Standard deviation %fat: ", std_fat)
 
     # Draw box plots for age and %fat
-    plt.figure(figsize=(10, 5))
+    plt.figure(figsize=(10, 10))
 
-    plt.subplot(1, 2, 1)
+    plt.subplot(2, 2, 1)
     plt.boxplot(ages, vert=False)
     plt.title('Box plot of Ages')
     plt.xlabel('Age')
+    plt.grid(True)
 
-    plt.subplot(1, 2, 2)
+    plt.subplot(2, 2, 2)
     plt.boxplot(fats, vert=False)
     plt.title('Box plot of %Fat')
     plt.xlabel('%Fat')
+    plt.grid(True)
+
+    plt.subplot(2, 2, 3)
+    plt.scatter(ages, fats)
+    plt.title('Scatter Plot of Age vs %Fat')
+    plt.xlabel('Age')
+    plt.ylabel('%Fat')
+    plt.grid(True)
+
+    # Draw Q-Q plot
+    plt.subplot(2, 2, 4)
+    stats.probplot(fats, dist="norm", plot=plt)
+    plt.title('Q-Q Plot of %Fat')
+    plt.grid(True)
 
     plt.tight_layout()
     plt.show()
+
