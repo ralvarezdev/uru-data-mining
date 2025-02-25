@@ -53,25 +53,27 @@ if __name__ == '__main__':
     print("Q3: ", q3)
     print("Max: ", max_age)
 
-    # Show the box plot
-    plt.boxplot(ages)
-    plt.show()
+    # Draw box plot, normal Q-Q plot, and quantile plot
+    plt.figure(figsize=(15, 5))
 
-    # Show quantile-quantile plot
-    plt.figure()
+    plt.subplot(1, 3, 1)
+    plt.boxplot(ages, vert=False)
+    plt.title('Box plot')
+    plt.xlabel('Age')
+
+    plt.subplot(1, 3, 2)
     stats.probplot(ages, dist="norm", plot=plt)
     plt.title("Normal Q-Q plot")
-    plt.show()
 
-    # Show the quantile plot
     sorted_data = np.sort(ages)
     quantiles = np.linspace(0, 1, len(sorted_data))
-
-    plt.figure()
+    plt.subplot(1, 3, 3)
     plt.plot(quantiles, sorted_data)
     plt.title("Quantile Plot")
     plt.xlabel("Quantiles")
-    plt.ylabel("Data Values")
+    plt.ylabel("Ordered Values")
+
+    plt.tight_layout()
     plt.show()
 
 
