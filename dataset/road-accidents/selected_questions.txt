@@ -1,0 +1,11 @@
+Can we predict Accident Severity based on Weather Conditions, Visibility Level, and Time of Day?
+
+How does Speed Limit and Traffic Volume affect the Number of Injuries and Number of Fatalities?
+
+What are the most relevant factors in predicting Economic Loss from accidents?
+
+Which Road Type has the highest Accident Severity and how does it vary between Urban/Rural areas?
+
+Is there a correlation between Driver Alcohol Level and Number of Injuries or Number of Fatalities?
+
+How does Emergency Response Time affect the Number of Fatalities and Number of Injuries?
