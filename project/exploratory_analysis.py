@@ -15,8 +15,12 @@ COLUMNS_CHUNK_SIZE = 5
 
 # Convert camel case to snake case
 def to_snake_case(s):
+    # Drop '\' and '/' characters
+    s = re.sub(r'[\\/]', '', s)
+
+    # Replace spaces with underscores
     s = re.sub(r'(?<!^)(?=[A-Z])', '_', s).lower()
-    s = re.sub(r'\s+', '_', s)
+    s = re.sub(r'\s+', '', s)
     return s
 
 if __name__ == '__main__':
@@ -36,8 +40,8 @@ if __name__ == '__main__':
     if not os.path.exists(charts_dir):
         os.makedirs(charts_dir)
 
-    # Generate the histogram chart for the columns
     for column in df.columns:
+        # Check if the column is numeric
         if df[column].dtype == 'float64' or df[column].dtype == 'int64':
             # Generate histogram for numeric columns
             sns.histplot(df[column])
@@ -47,6 +51,28 @@ if __name__ == '__main__':
             plt.savefig(os.path.join(PROJECT_DIR, CHARTS_DIR, f'{to_snake_case(column)}_histogram.png'))
 
             # Clear the plot
+            plt.clf()
+
+            # Check if it only contains '1' and '0' values
+            if df[column].nunique() == 2 and set(df[column].unique()).issubset({0, 1}):
+                continue
+
+            # Generate boxplot for numeric columns
+            sns.boxplot(x=df[column])
+            plt.title(f'Boxplot of {column}')
+            plt.xlabel(column)
+            plt.savefig(os.path.join(PROJECT_DIR, CHARTS_DIR, f'{to_snake_case(column)}_boxplot.png'))
+
+            # Clear the plot
+            plt.clf()
+
+        # Visualize the distribution of string values
+        else:
+            sns.countplot(x=column, data=df, order=df[column].value_counts().index)
+            plt.title(f'Histogram of {column}')
+            plt.ylabel('Frequency')
+            plt.xlabel(column)
+            plt.savefig(os.path.join(PROJECT_DIR, CHARTS_DIR, f'{to_snake_case(column)}_histogram.png'))
             plt.clf()
 
     # Split by columns chunk size
