@@ -1,17 +1,10 @@
-import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 import re
 
-# Constants
-DATASET_DIR = 'dataset'
-ROAD_ACCIDENTS_DIR = 'road-accidents'
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-CHARTS_DIR = 'charts'
-ROAD_ACCIDENT_DATASET_FILE = 'road_accident_dataset.csv'
-PREVIEW_ROWS = 10
-COLUMNS_CHUNK_SIZE = 5
+from project import PROJECT_DIR, CHARTS_DIR, PREVIEW_ROWS, COLUMNS_CHUNK_SIZE
+from project.load import load_dataset
 
 # Convert camel case to snake case
 def to_snake_case(s):
@@ -24,16 +17,10 @@ def to_snake_case(s):
     return s
 
 if __name__ == '__main__':
-    print("---  EXPLORATORY DATA ANALYSIS ---\n")
-
-    # Get the current working directory
-    current_dir = os.getcwd()
-
-    # Get the path to the dataset
-    dataset_path = os.path.join(current_dir, DATASET_DIR, ROAD_ACCIDENTS_DIR, ROAD_ACCIDENT_DATASET_FILE)
+    print("--- EXPLORATORY DATA ANALYSIS ---\n")
 
     # Load the dataset CSV file
-    df = pd.read_csv(dataset_path)
+    df = load_dataset()
 
     # Verify that the charts directory exists, if not create it
     charts_dir = os.path.join(PROJECT_DIR, CHARTS_DIR)
