@@ -1,0 +1,5 @@
+What are the most relevant factors for predicting the accident severity?
+
+What are the most relevant factors for predicting the driver alcohol level?
+
+What are the most relevant factors for predicting the economic loss?
