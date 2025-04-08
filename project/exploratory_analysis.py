@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
-from project import PROJECT_DIR, PREVIEW_ROWS, COLUMNS_CHUNK_SIZE, to_snake_case, HISTOGRAMS_DIR, \
+from project import PREVIEW_ROWS, COLUMNS_CHUNK_SIZE, to_snake_case, HISTOGRAMS_DIR, \
     BOXPLOTS_DIR, COUNTPLOTS_DIR
 from project.load import load_dataset
 
@@ -13,7 +13,6 @@ if __name__ == '__main__':
 
     # Verify that the directories exist, if not create them
     for temp_dir in [HISTOGRAMS_DIR, BOXPLOTS_DIR, COUNTPLOTS_DIR]:
-        temp_dir = os.path.join(PROJECT_DIR, temp_dir)
         if not os.path.exists(temp_dir):
             os.makedirs(temp_dir)
 
@@ -25,12 +24,12 @@ if __name__ == '__main__':
             plt.title(f'Histogram of {column}')
             plt.xlabel(column)
             plt.ylabel('Frequency')
-            plt.savefig(os.path.join(PROJECT_DIR, HISTOGRAMS_DIR, f'{to_snake_case(column)}.png'))
+            plt.savefig(os.path.join(HISTOGRAMS_DIR, f'{to_snake_case(column)}.png'))
 
             # Clear the plot
             plt.clf()
 
-            print(f'Histogram of {column} saved to {os.path.join(PROJECT_DIR, HISTOGRAMS_DIR, f"{to_snake_case(column)}.png")}')
+            print(f'Histogram of {column} saved to {os.path.join(HISTOGRAMS_DIR, f"{to_snake_case(column)}.png")}')
 
             # Check if it only contains '1' and '0' values
             if df[column].nunique() == 2 and set(df[column].unique()).issubset({0, 1}):
@@ -40,12 +39,12 @@ if __name__ == '__main__':
             sns.boxplot(x=df[column])
             plt.title(f'Boxplot of {column}')
             plt.xlabel(column)
-            plt.savefig(os.path.join(PROJECT_DIR, BOXPLOTS_DIR, f'{to_snake_case(column)}.png'))
+            plt.savefig(os.path.join(BOXPLOTS_DIR, f'{to_snake_case(column)}.png'))
 
             # Clear the plot
             plt.clf()
 
-            print(f'Boxplot of {column} saved to {os.path.join(PROJECT_DIR, BOXPLOTS_DIR, f"{to_snake_case(column)}.png")}')
+            print(f'Boxplot of {column} saved to {os.path.join(BOXPLOTS_DIR, f"{to_snake_case(column)}.png")}')
 
         # Visualize the distribution of string values
         else:
@@ -53,12 +52,12 @@ if __name__ == '__main__':
             plt.title(f'Countplot of {column}')
             plt.ylabel('Frequency')
             plt.xlabel(column)
-            plt.savefig(os.path.join(PROJECT_DIR, COUNTPLOTS_DIR, f'{to_snake_case(column)}.png'))
+            plt.savefig(os.path.join(COUNTPLOTS_DIR, f'{to_snake_case(column)}.png'))
 
             # Clear the plot
             plt.clf()
 
-            print(f'Countplot of {column} saved to {os.path.join(PROJECT_DIR, COUNTPLOTS_DIR, f"{to_snake_case(column)}.png")}')
+            print(f'Countplot of {column} saved to {os.path.join(COUNTPLOTS_DIR, f"{to_snake_case(column)}.png")}')
 
     # Split by columns chunk size
     chunks = []

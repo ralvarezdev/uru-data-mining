@@ -1,11 +1,11 @@
-from project import PROJECT_DIR, OLS_DIR, to_snake_case
+from project import OLS_DIR, to_snake_case
 from project.combinations import generate_combinations
 from project.load import load_transformed_dataset
 import statsmodels.api as sm
 import os
 
 # Constants
-MAX_SIZE = 10
+MAX_SIZE = 3
 
 if __name__ == '__main__':
     print("--- OLS ---\n")
@@ -18,9 +18,8 @@ if __name__ == '__main__':
         print(f"Generated {len(combinationsList[-1])} combinations of size {i}")
 
     # Verify that the OLS directory exists, if not create it
-    ols_dir = os.path.join(PROJECT_DIR, OLS_DIR)
-    if not os.path.exists(ols_dir):
-        os.makedirs(ols_dir)
+    if not os.path.exists(OLS_DIR):
+        os.makedirs(OLS_DIR)
 
     for combinations in combinationsList:
         for combination in combinations:
@@ -41,12 +40,12 @@ if __name__ == '__main__':
             print(f"OLS results for {x} and {y}: {model.rsquared}")
 
             # Ignore the R^2 value if it is too low
-            if model.rsquared <= 0.001:
+            if model.rsquared <= 0.0001:
                 continue
 
             # Open the file in write mode
             ols_file= to_snake_case(f'{"__".join(combination)}.txt')
-            with open(os.path.join(PROJECT_DIR, OLS_DIR, ols_file), 'w') as file:
+            with open(os.path.join(OLS_DIR, ols_file), 'w') as file:
                 file.write(str(model.summary()))
 
             print(f"OLS results for {x} and {y} saved to {ols_file}")

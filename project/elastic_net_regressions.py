@@ -1,5 +1,4 @@
-from project import PROJECT_DIR, RIDGE_REGRESSIONS_FILE, RIDGE_REGRESSIONS_DIR, ELASTIC_NET_REGRESSIONS_DIR, \
-    ELASTIC_NET_REGRESSIONS_FILE
+from project import ELASTIC_NET_REGRESSIONS_DIR, ELASTIC_NET_REGRESSIONS_FILE
 from project.combinations import generate_combinations
 from project.load import load_transformed_dataset
 from sklearn.model_selection import train_test_split
@@ -20,12 +19,11 @@ if __name__ == '__main__':
         print(f"Generated {len(combinationsList[-1])} combinations of size {i}")
 
     # Verify that the Elastic Net Regressions directory exists, if not create it
-    elastic_net_regressions_dir = os.path.join(PROJECT_DIR, ELASTIC_NET_REGRESSIONS_DIR)
-    if not os.path.exists(elastic_net_regressions_dir):
-        os.makedirs(elastic_net_regressions_dir)
+    if not os.path.exists(ELASTIC_NET_REGRESSIONS_DIR):
+        os.makedirs(ELASTIC_NET_REGRESSIONS_DIR)
 
     # Iterate through the combinations
-    high_r2_combinations = {}
+    r2_combinations = {}
     for combinations in combinationsList:
         for combination in combinations:
             x = list(combination[:-1])
@@ -45,26 +43,15 @@ if __name__ == '__main__':
             # Optimal parameters
             optimal_alpha = elastic_net_cv.alpha_
             optimal_l1_ratio = elastic_net_cv.l1_ratio_
-            #print(f"Optimal alpha: {optimal_alpha}, Optimal l1_ratio: {optimal_l1_ratio}")
 
             # Evaluate the model
             r2 = elastic_net_cv.score(X_test, Y_test)
-            #print(f"R^2 Score: {r2}")
 
-            # Ignore the R^2 value if it is too low
-            if abs(r2) <= 0.001:
-                continue
+            # Save the combination if R^2
+            r2_combinations[combination] = r2
 
-            # Save the combination if R^2 is high
-            high_r2_combinations[combination] = r2
+    # Open the file in write mode
+    with open(os.path.join(ELASTIC_NET_REGRESSIONS_DIR, ELASTIC_NET_REGRESSIONS_FILE), 'w') as file:
+        file.write(str(r2_combinations))
 
-    # Check if there are any high R^2 combinations
-    if not high_r2_combinations:
-        print("No high R^2 combinations found")
-
-    else:
-        # Open the file in write mode
-        with open(os.path.join(PROJECT_DIR, ELASTIC_NET_REGRESSIONS_DIR, ELASTIC_NET_REGRESSIONS_FILE), 'w') as file:
-            file.write(str(high_r2_combinations))
-
-        print(f"Ridge Regressions results saved to {ELASTIC_NET_REGRESSIONS_FILE}")
+    print(f"Ridge Regressions results saved to {ELASTIC_NET_REGRESSIONS_FILE}")

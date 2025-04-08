@@ -1,4 +1,4 @@
-from project import PROJECT_DIR, to_snake_case, PAIRPLOTS_DIR
+from project import to_snake_case, PAIRPLOTS_DIR
 from project.combinations import generate_combinations
 from project.load import load_transformed_dataset
 import matplotlib.pyplot as plt
@@ -13,15 +13,14 @@ if __name__ == '__main__':
     combinations = generate_combinations(2)
 
     # Verify that the pairplots directory exists, if not create it
-    pairplots_dir = os.path.join(PROJECT_DIR, PAIRPLOTS_DIR)
-    if not os.path.exists(pairplots_dir):
-        os.makedirs(pairplots_dir)
+    if not os.path.exists(PAIRPLOTS_DIR):
+        os.makedirs(PAIRPLOTS_DIR)
 
     for combination in combinations:
         # Plot pairwise relationships
         pairplot_file = to_snake_case(f'{combination[0]}__{combination[1]}.png')
         sns.pairplot(df[combination])
-        plt.savefig(os.path.join(PROJECT_DIR, PAIRPLOTS_DIR, pairplot_file))
+        plt.savefig(os.path.join(PAIRPLOTS_DIR, pairplot_file))
         plt.clf()
 
         print(f"Pairplot results for {combination[0]} and {combination[1]} saved to {pairplot_file}")
