@@ -1,0 +1,21 @@
+The excerpt you provided contains the results of two Ordinary Least Squares (OLS) regression analyses. Here is a brief explanation of the key metrics and results:
+
+1. **Number of Injuries Regression Results**:
+   - **Dep. Variable**: The dependent variable is `Number of Injuries`.
+   - **R-squared**: 0.000, indicating that the model explains none of the variability of the response data around its mean.
+   - **Adj. R-squared**: -0.000, similar to R-squared, adjusted for the number of predictors.
+   - **F-statistic**: 0.006481, with a **Prob (F-statistic)** of 0.936, indicating that the model is not statistically significant.
+   - **Coefficients**:
+     - `const`: 9.5056, the intercept of the regression line.
+     - `Emergency Response Time`: 8.052e-05, the coefficient for emergency response time, not statistically significant (P>|t| = 0.936).
+
+2. **Number of Fatalities Regression Results**:
+   - **Dep. Variable**: The dependent variable is `Number of Fatalities`.
+   - **R-squared**: 0.000, indicating that the model explains none of the variability of the response data around its mean.
+   - **Adj. R-squared**: 0.000, similar to R-squared, adjusted for the number of predictors.
+   - **F-statistic**: 1.456, with a **Prob (F-statistic)** of 0.228, indicating that the model is not statistically significant.
+   - **Coefficients**:
+     - `const`: 1.9858, the intercept of the regression line.
+     - `Emergency Response Time`: 0.0003, the coefficient for emergency response time, not statistically significant (P>|t| = 0.228).
+
+Overall, both regression models have very low R-squared values and non-significant coefficients, indicating that the predictor (Emergency Response Time) does not explain the variability in the number of injuries or fatalities.

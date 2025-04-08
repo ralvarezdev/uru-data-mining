@@ -1,0 +1,58 @@
+--- QUESTION 2 ---
+
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:     Number of Injuries   R-squared:                       0.000
+Model:                            OLS   Adj. R-squared:                 -0.000
+Method:                 Least Squares   F-statistic:                   0.08626
+Date:                Mon, 07 Apr 2025   Prob (F-statistic):              0.917
+Time:                        09:04:17   Log-Likelihood:            -4.1875e+05
+No. Observations:              132000   AIC:                         8.375e+05
+Df Residuals:                  131997   BIC:                         8.375e+05
+Df Model:                           2
+Covariance Type:            nonrobust
+==================================================================================
+                     coef    std err          t      P>|t|      [0.025      0.975]
+----------------------------------------------------------------------------------
+const              9.5242      0.056    170.550      0.000       9.415       9.634
+Speed Limit       -0.0002      0.001     -0.406      0.685      -0.001       0.001
+Traffic Volume  4.862e-07   5.56e-06      0.088      0.930   -1.04e-05    1.14e-05
+==============================================================================
+Omnibus:                   129201.563   Durbin-Watson:                   2.006
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             8056.155
+Skew:                           0.001   Prob(JB):                         0.00
+Kurtosis:                       1.790   Cond. No.                     2.04e+04
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 2.04e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.
+                             OLS Regression Results
+================================================================================
+Dep. Variable:     Number of Fatalities   R-squared:                       0.000
+Model:                              OLS   Adj. R-squared:                  0.000
+Method:                   Least Squares   F-statistic:                     1.794
+Date:                  Mon, 07 Apr 2025   Prob (F-statistic):              0.166
+Time:                          09:04:17   Log-Likelihood:            -2.3293e+05
+No. Observations:                132000   AIC:                         4.659e+05
+Df Residuals:                    131997   BIC:                         4.659e+05
+Df Model:                             2
+Covariance Type:              nonrobust
+==================================================================================
+                     coef    std err          t      P>|t|      [0.025      0.975]
+----------------------------------------------------------------------------------
+const              2.0059      0.014    146.791      0.000       1.979       2.033
+Speed Limit     3.317e-05      0.000      0.222      0.824      -0.000       0.000
+Traffic Volume -2.557e-06   1.36e-06     -1.881      0.060   -5.22e-06    1.07e-07
+==============================================================================
+Omnibus:                   488606.412   Durbin-Watson:                   2.000
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             9271.067
+Skew:                           0.004   Prob(JB):                         0.00
+Kurtosis:                       1.702   Cond. No.                     2.04e+04
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 2.04e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.

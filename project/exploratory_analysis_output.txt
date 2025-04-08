@@ -1,0 +1,199 @@
+--- EXPLORATORY DATA ANALYSIS ---
+
+
+--- DATA PREVIEW (Country, Year, Month, Day of Week, Time of Day) ---
+
+  Country  Year     Month Day of Week Time of Day
+0     USA  2002   October     Tuesday     Evening
+1      UK  2014  December    Saturday     Evening
+2     USA  2012      July      Sunday   Afternoon
+3      UK  2017       May    Saturday     Evening
+4  Canada  2002      July     Tuesday   Afternoon
+5   India  2010       May      Monday     Evening
+6   China  2010     March      Monday   Afternoon
+7     USA  2016      July      Friday   Afternoon
+8   Japan  2014    August    Thursday   Afternoon
+9     USA  2007     April      Monday     Evening
+
+--- DATA PREVIEW (Urban/Rural, Road Type, Weather Conditions, Visibility Level, Number of Vehicles Involved) ---
+
+  Urban/Rural  Road Type Weather Conditions  Visibility Level  Number of Vehicles Involved
+0       Rural     Street              Windy        220.414651                            1
+1       Urban     Street              Windy        168.311358                            3
+2       Urban    Highway              Snowy        341.286506                            4
+3       Urban  Main Road              Clear        489.384536                            2
+4       Rural    Highway              Rainy        348.344850                            1
+5       Urban     Street              Snowy        479.216834                            2
+6       Rural     Street              Foggy        386.176217                            3
+7       Rural  Main Road              Foggy         75.608688                            3
+8       Rural    Highway              Rainy        387.828675                            3
+9       Urban    Highway              Foggy        443.965408                            3
+
+--- DATA PREVIEW (Speed Limit, Driver Age Group, Driver Gender, Driver Alcohol Level, Driver Fatigue) ---
+
+   Speed Limit Driver Age Group Driver Gender  Driver Alcohol Level  Driver Fatigue
+0           37            18-25          Male              0.051921               0
+1           96            18-25        Female              0.234893               1
+2           62            41-60          Male              0.142366               0
+3           78            18-25          Male              0.120815               1
+4           98            41-60          Male              0.155842               1
+5           30            18-25          Male              0.084002               1
+6           92            41-60          Male              0.075293               0
+7           61            26-40          Male              0.051611               0
+8          106            26-40          Male              0.159768               1
+9           74            18-25          Male              0.097621               1
+
+--- DATA PREVIEW (Vehicle Condition, Pedestrians Involved, Cyclists Involved, Accident Severity, Number of Injuries) ---
+
+  Vehicle Condition  Pedestrians Involved  Cyclists Involved Accident Severity  Number of Injuries
+0              Poor                     1                  2          Moderate                   8
+1              Poor                     1                  1             Minor                   6
+2          Moderate                     0                  0          Moderate                  13
+3              Good                     2                  0             Minor                   6
+4              Poor                     0                  1          Moderate                  13
+5          Moderate                     2                  2            Severe                  10
+6              Poor                     2                  1          Moderate                  10
+7              Good                     1                  1             Minor                   6
+8              Poor                     1                  2             Minor                   4
+9          Moderate                     1                  0             Minor                   2
+
+--- DATA PREVIEW (Number of Fatalities, Emergency Response Time, Traffic Volume, Road Condition, Accident Cause) ---
+
+   Number of Fatalities  Emergency Response Time  Traffic Volume Road Condition      Accident Cause
+0                     2                58.625720     7412.752760            Wet             Weather
+1                     1                58.041380     4458.628820   Snow-covered  Mechanical Failure
+2                     4                42.374452     9856.915064            Wet            Speeding
+3                     3                48.554014     4958.646267            Icy  Distracted Driving
+4                     4                18.318250     3843.191463            Icy  Distracted Driving
+5                     4                 8.205994      360.951795            Dry            Speeding
+6                     3                17.851663     7607.804705            Wet             Weather
+7                     2                46.740367     6061.407002            Dry            Speeding
+8                     2                26.543610     3793.850542   Snow-covered  Mechanical Failure
+9                     3                44.693355     1140.429308   Snow-covered  Distracted Driving
+
+--- DATA PREVIEW (Insurance Claims, Medical Cost, Economic Loss, Region, Population Density) ---
+
+   Insurance Claims  Medical Cost  Economic Loss         Region  Population Density
+0                 4  40499.856982   22072.878502         Europe         3866.273014
+1                 3   6486.600073    9534.399441  North America         2333.916224
+2                 4  29164.412982   58009.145124  South America         4408.889129
+3                 3  25797.212566   20907.151302      Australia         2810.822423
+4                 8  15605.293921   13584.060759  South America         3883.645634
+5                 7  40980.718164   45995.605252  South America         3626.074027
+6                 9  47248.020238   52342.431806           Asia         3408.182341
+7                 8   4262.755621   70652.223517  South America          408.296453
+8                 5  37624.775981   13724.630950         Europe         2058.898279
+9                 0  15801.190076   61948.862751      Australia         1840.206143
+
+--- DATA TYPES ---
+
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 132000 entries, 0 to 131999
+Data columns (total 30 columns):
+ #   Column                       Non-Null Count   Dtype
+---  ------                       --------------   -----
+ 0   Country                      132000 non-null  object
+ 1   Year                         132000 non-null  int64
+ 2   Month                        132000 non-null  object
+ 3   Day of Week                  132000 non-null  object
+ 4   Time of Day                  132000 non-null  object
+ 5   Urban/Rural                  132000 non-null  object
+ 6   Road Type                    132000 non-null  object
+ 7   Weather Conditions           132000 non-null  object
+ 8   Visibility Level             132000 non-null  float64
+ 9   Number of Vehicles Involved  132000 non-null  int64
+ 10  Speed Limit                  132000 non-null  int64
+ 11  Driver Age Group             132000 non-null  object
+ 12  Driver Gender                132000 non-null  object
+ 13  Driver Alcohol Level         132000 non-null  float64
+ 14  Driver Fatigue               132000 non-null  int64
+ 15  Vehicle Condition            132000 non-null  object
+ 16  Pedestrians Involved         132000 non-null  int64
+ 17  Cyclists Involved            132000 non-null  int64
+ 18  Accident Severity            132000 non-null  object
+ 19  Number of Injuries           132000 non-null  int64
+ 20  Number of Fatalities         132000 non-null  int64
+ 21  Emergency Response Time      132000 non-null  float64
+ 22  Traffic Volume               132000 non-null  float64
+ 23  Road Condition               132000 non-null  object
+ 24  Accident Cause               132000 non-null  object
+ 25  Insurance Claims             132000 non-null  int64
+ 26  Medical Cost                 132000 non-null  float64
+ 27  Economic Loss                132000 non-null  float64
+ 28  Region                       132000 non-null  object
+ 29  Population Density           132000 non-null  float64
+dtypes: float64(7), int64(9), object(14)
+memory usage: 30.2+ MB
+None
+
+--- DATA STATISTICS (Country, Year, Month, Day of Week, Time of Day) ---
+
+                Year
+count  132000.000000
+mean     2011.973348
+std         7.198624
+min      2000.000000
+25%      2006.000000
+50%      2012.000000
+75%      2018.000000
+max      2024.000000
+
+--- DATA STATISTICS (Urban/Rural, Road Type, Weather Conditions, Visibility Level, Number of Vehicles Involved) ---
+
+       Visibility Level  Number of Vehicles Involved
+count     132000.000000                132000.000000
+mean         275.038776                     2.501227
+std          129.923625                     1.117272
+min           50.001928                     1.000000
+25%          162.338860                     2.000000
+50%          274.672990                     3.000000
+75%          388.014111                     3.000000
+max          499.999646                     4.000000
+
+--- DATA STATISTICS (Speed Limit, Driver Age Group, Driver Gender, Driver Alcohol Level, Driver Fatigue) ---
+
+         Speed Limit  Driver Alcohol Level  Driver Fatigue
+count  132000.000000         132000.000000   132000.000000
+mean       74.544068              0.125232        0.500576
+std        26.001448              0.072225        0.500002
+min        30.000000              0.000002        0.000000
+25%        52.000000              0.062630        0.000000
+50%        74.000000              0.125468        1.000000
+75%        97.000000              0.187876        1.000000
+max       119.000000              0.249999        1.000000
+
+--- DATA STATISTICS (Vehicle Condition, Pedestrians Involved, Cyclists Involved, Accident Severity, Number of Injuries) ---
+
+       Pedestrians Involved  Cyclists Involved  Number of Injuries
+count         132000.000000      132000.000000       132000.000000
+mean               1.000773           0.998356            9.508205
+std                0.816304           0.817764            5.774366
+min                0.000000           0.000000            0.000000
+25%                0.000000           0.000000            5.000000
+50%                1.000000           1.000000            9.000000
+75%                2.000000           2.000000           15.000000
+max                2.000000           2.000000           19.000000
+
+--- DATA STATISTICS (Number of Fatalities, Emergency Response Time, Traffic Volume, Road Condition, Accident Cause) ---
+
+       Number of Fatalities  Emergency Response Time  Traffic Volume
+count         132000.000000            132000.000000   132000.000000
+mean               1.995439                32.491746     5041.929098
+std                1.412974                15.889537     2860.671611
+min                0.000000                 5.000177      100.062626
+25%                1.000000                18.732879     2560.601299
+50%                2.000000                32.534944     5037.909855
+75%                3.000000                46.289527     7524.638162
+max                4.000000                59.999588     9999.997468
+
+--- DATA STATISTICS (Insurance Claims, Medical Cost, Economic Loss, Region, Population Density) ---
+
+       Insurance Claims   Medical Cost  Economic Loss  Population Density
+count     132000.000000  132000.000000  132000.000000       132000.000000
+mean           4.495621   25198.454901   50437.505615         2506.476223
+std            2.867347   14274.771691   28584.290822         1440.646352
+min            0.000000     500.110090    1000.335085           10.002669
+25%            2.000000   12836.933596   25692.817343         1258.158299
+50%            4.000000   25188.202669   50395.499874         2506.203333
+75%            7.000000   37529.024899   75186.626093         3756.652950
+max            9.000000   49999.930130   99999.622968         4999.991745

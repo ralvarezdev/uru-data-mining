@@ -1,0 +1,9 @@
+The excerpt you provided shows the correlation coefficients between Driver Alcohol Level and two variables: Number of Injuries and Number of Fatalities.
+
+- **Correlation between Driver Alcohol Level and Number of Injuries**: -0.0012
+  - This indicates a very weak negative correlation between Driver Alcohol Level and the Number of Injuries. The closer the value is to -1, the stronger the negative correlation. In this case, the correlation is almost negligible.
+
+- **Correlation between Driver Alcohol Level and Number of Fatalities**: 0.0021
+  - This indicates a very weak positive correlation between Driver Alcohol Level and the Number of Fatalities. The closer the value is to 1, the stronger the positive correlation. In this case, the correlation is almost negligible.
+
+Overall, these correlation values suggest that there is no significant relationship between Driver Alcohol Level and the Number of Injuries or Fatalities.

@@ -4,7 +4,7 @@ from sklearn.preprocessing import LabelEncoder
 import os
 
 if __name__ == '__main__':
-    print("--- DATA ANALYSIS ---\n")
+    print("--- DATA TRANSFORM ---\n")
 
     # Load the dataset CSV file
     df = load_dataset()

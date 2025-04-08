@@ -1,0 +1,4 @@
+--- QUESTION 5 ---
+
+Correlation between Driver Alcohol Level and Number of Injuries: -0.0012003786507110933
+Correlation between Driver Alcohol Level and Number of Fatalities: 0.0021147138660244473
